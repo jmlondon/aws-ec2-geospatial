@@ -55,7 +55,7 @@ echo /usr/local/lib >> /etc/ld.so.conf.d/libgdal-x86_64.conf
 ldconfig
 
 # install R packages as ec2-user
-su - ec2-user -c "mkdir -p R/x86_64-pc-linux-gnu-library/3.3"
+su - ec2-user -c "mkdir -p ~/R/x86_64-koji-linux-gnu-library/3.4"
 su - ec2-user -c "R install.packages('udunits2', \
 configure.args='--with-udunits2-include=/usr/include/udunits2/', \
 repos = 'https://ftp.osuosl.org/pub/cran/'')"
@@ -75,4 +75,3 @@ su - ec2-user -c "R install.packages('doFuture', \
 repose = 'https://ftp.osuosl.org/pub/cran/')"
 su - ec2-user -c "R install.packages('furrr', \
 repos = 'https://ftp.osuosl.org/pub/cran/')"
-
