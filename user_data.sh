@@ -54,24 +54,17 @@ make install
 echo /usr/local/lib >> /etc/ld.so.conf.d/libgdal-x86_64.conf
 ldconfig
 
-# install R packages as ec2-user
-su - ec2-user -c "mkdir -p ~/R/x86_64-koji-linux-gnu-library/3.4"
-su - ec2-user -c "R install.packages('udunits2', \
-configure.args='--with-udunits2-include=/usr/include/udunits2/', \
-repos = 'https://ftp.osuosl.org/pub/cran/'')"
-su - ec2-user -c "R install.packages('tidyverse', \
-repos = 'https://ftp.osuosl.org/pub/cran/')"
-su - ec2-user -c "R install.packages('devtools', \
-repos = 'https://ftp.osuosl.org/pub/cran/')"
-su - ec2-user -c "R install.packages('raster', \
-repos = 'https://ftp.osuosl.org/pub/cran/')"
-su - ec2-user -c "R install.packages('crawl', \
-repos = 'https://ftp.osuosl.org/pub/cran/')"
-su - ec2-user -c "R install.packages('future', \
-repos = 'https://ftp.osuosl.org/pub/cran/')"
-su - ec2-user -c "R install.packages('foreach', \
-repos = 'https://ftp.osuosl.org/pub/cran/')"
-su - ec2-user -c "R install.packages('doFuture', \
-repose = 'https://ftp.osuosl.org/pub/cran/')"
-su - ec2-user -c "R install.packages('furrr', \
-repos = 'https://ftp.osuosl.org/pub/cran/')"
+mkdir -p -m 0777 /usr/local/lib/R/site-library
+
+echo "R_LIBS_SITE=${R_LIBS_SITE-'/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library'}" > /etc/R/Renviron.site
+
+R install.packages('udunits2',configure.args='--with-udunits2-include=/usr/include/udunits2/', repos = 'https://ftp.osuosl.org/pub/cran/')
+R install.packages('tidyverse', repos = 'https://ftp.osuosl.org/pub/cran/')
+R install.packages('devtools', repos = 'https://ftp.osuosl.org/pub/cran/')
+R install.packages('sf', repos = 'https://ftp.osuosl.org/pub/cran/')
+R install.packages('raster', repos = 'https://ftp.osuosl.org/pub/cran/')
+R install.packages('crawl', repos = 'https://ftp.osuosl.org/pub/cran/')
+R install.packages('future', repos = 'https://ftp.osuosl.org/pub/cran/')
+R install.packages('foreach', repos = 'https://ftp.osuosl.org/pub/cran/')
+R install.packages('doFuture', repos = 'https://ftp.osuosl.org/pub/cran/')
+R install.packages('furrr', repos = 'https://ftp.osuosl.org/pub/cran/')
