@@ -1,4 +1,4 @@
-install.packages('udunits2',configure.args='--with-udunits2-include=/usr/include/udunits2/', repos = 'https://ftp.osuosl.org/pub/cran/')"
+install.packages('udunits2',configure.args='--with-udunits2-include=/usr/include/udunits2/', repos = 'https://ftp.osuosl.org/pub/cran/')
 install.packages('tidyverse', repos = 'https://ftp.osuosl.org/pub/cran/')
 install.packages('devtools', repos = 'https://ftp.osuosl.org/pub/cran/')
 install.packages('raster', repos = 'https://ftp.osuosl.org/pub/cran/')
