@@ -56,15 +56,16 @@ ldconfig
 
 mkdir -p -m 0777 /usr/local/lib/R/site-library
 
-echo "R_LIBS_SITE=${R_LIBS_SITE-'/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library'}" > /etc/R/Renviron.site
+touch /usr/lib64/R/etc/Renviron.site
+echo "R_LIBS_SITE=${R_LIBS_SITE-'/usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library'}" > /usr/lib64/R/etc/Renviron.site
 
-R install.packages('udunits2',configure.args='--with-udunits2-include=/usr/include/udunits2/', repos = 'https://ftp.osuosl.org/pub/cran/')
-R install.packages('tidyverse', repos = 'https://ftp.osuosl.org/pub/cran/')
-R install.packages('devtools', repos = 'https://ftp.osuosl.org/pub/cran/')
-R install.packages('sf', repos = 'https://ftp.osuosl.org/pub/cran/')
-R install.packages('raster', repos = 'https://ftp.osuosl.org/pub/cran/')
-R install.packages('crawl', repos = 'https://ftp.osuosl.org/pub/cran/')
-R install.packages('future', repos = 'https://ftp.osuosl.org/pub/cran/')
-R install.packages('foreach', repos = 'https://ftp.osuosl.org/pub/cran/')
-R install.packages('doFuture', repos = 'https://ftp.osuosl.org/pub/cran/')
-R install.packages('furrr', repos = 'https://ftp.osuosl.org/pub/cran/')
+R -e "install.packages('udunits2',configure.args='--with-udunits2-include=/usr/include/udunits2/', repos = 'https://ftp.osuosl.org/pub/cran/')"
+R -e "install.packages('tidyverse', repos = 'https://ftp.osuosl.org/pub/cran/')"
+R -e "install.packages('devtools', repos = 'https://ftp.osuosl.org/pub/cran/')"
+R -e "install.packages('sf', repos = 'https://ftp.osuosl.org/pub/cran/')"
+R -e "install.packages('raster', repos = 'https://ftp.osuosl.org/pub/cran/')"
+R -e "install.packages('crawl', repos = 'https://ftp.osuosl.org/pub/cran/')"
+R -e "install.packages('future', repos = 'https://ftp.osuosl.org/pub/cran/')"
+R -e "install.packages('foreach', repos = 'https://ftp.osuosl.org/pub/cran/')"
+R -e "install.packages('doFuture', repos = 'https://ftp.osuosl.org/pub/cran/')"
+R -e "install.packages('furrr', repos = 'https://ftp.osuosl.org/pub/cran/')"
